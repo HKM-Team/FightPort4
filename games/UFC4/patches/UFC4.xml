@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ufc4: patches for EA SPORTS UFC 4 (CUSA14209, CUSA14204) 28.00, the native port's own fixes.
+     Addresses are PS4 virtual addresses (eboot base 0x400000), CUSA14209's; another executable
+     (CUSA14204) gets the write where the Signature matches (patches.py). -->
+<Patch>
+    <TitleID>
+        <ID>CUSA14209</ID>
+        <ID>CUSA14204</ID>
+    </TitleID>
+    <Metadata Title="EA SPORTS UFC 4"
+              Name="Offline network: skip UPnP (DirtySDK -noupnp)"
+              Note="NetConnStartup (0x13256b0) creates ProtoUpnp unless its parameters carry -noupnp. ProtoUpnp opens and binds a UDP socket; the offline runtime has no sockets, so the creation failed, NetConnStartup failed whole (-6) and the game later read the destroyed DirtyCM module (fault at 0x137cde4). This takes the -noupnp branch: UPnP is never used offline."
+              Author="ufc4 port"
+              PatchVer="1.0"
+              AppVer="28.00"
+              AppElf="eboot.bin"
+              isEnabled="true">
+        <PatchList>
+            <!-- strstr(params, "-noupnp"); test rax,rax; je create_upnp  ->  never jump (as if found) -->
+            <Line Type="bytes" Address="0x0172593b" Value="9090" Signature="48 85 C0 74 16 48 8B 7D B8 EB 29" SignatureOffset="3"/>
+        </PatchList>
+    </Metadata>
+    <Metadata Title="EA SPORTS UFC 4"
+              Name="Fix memory allocator freelist crash (fault at 0x12a58fd)"
+              Note="Prevents crash at guest offset 0x12a58fd (mov rax, [rbx]) during replay buffering and asset streaming when allocator freelist nodes become corrupted or desynchronized. Bypasses corrupt freelist pops and allocates clean blocks from the slab."
+              Author="ufc4 port"
+              PatchVer="1.0"
+              AppVer="28.00"
+              AppElf="eboot.bin"
+              isEnabled="true">
+        <PatchList>
+            <!-- 12a563c: test rbx, rbx; jz 12a566d -> jmp 12a566d (always carve clean bin-0 block) -->
+            <Line Type="bytes" Address="0x016a563c" Value="eb" Signature="48 85 DB 74 2F 66 41 FF 46 20 48 8B 03" SignatureOffset="3"/>
+            <!-- 12a56cc: test rcx, rcx; jz 12a56ef -> jmp 12a56ef (always carve clean slab head, avoids null deref at 12a56e3) -->
+            <Line Type="bytes" Address="0x016a56cc" Value="eb" Signature="48 85 C9 74 21 48 C7 41 08 00 00 00 00" SignatureOffset="3"/>
+            <!-- 12a58f6: test rbx, rbx; jz 12a5927 -> jmp 12a5927 (always carve clean slab block) -->
+            <Line Type="bytes" Address="0x016a58f6" Value="eb" Signature="48 85 DB 74 2F 66 41 FF 46 20 48 8B 03" SignatureOffset="3"/>
+            <!-- 12a5986: test rcx, rcx; jz 12a59ab -> jmp 12a59ab (always acquire clean chunk) -->
+            <Line Type="bytes" Address="0x016a5986" Value="eb" Signature="48 85 C9 74 21 48 C7 41 08 00 00 00 00" SignatureOffset="3"/>
+            <!-- 12a5be4: Fix crash at guest offset 0x12a5c00 (mov rcx, [rsi + 0x10]) during career mode and cutscenes.
+                 Normalizes bin index rcx if biased, restores clean bin head without unsafe dereference of rsi -->
+            <Line Type="bytes" Address="0x016a5be4" Value="4881f9ffefffff7d094881c101100000ebee8d910110000066895022498984cf20800000e979ffffff9090909090909090909090909090909090909090909090909090909090" Signature="49 8D BF 30 04 00 00 49 8B B4 CF 20 80 00 00 48 39 FE 0F 84 A8 00 00 00" SignatureOffset="0"/>
+        </PatchList>
+    </Metadata>
+</Patch>

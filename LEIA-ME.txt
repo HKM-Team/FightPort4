@@ -1,0 +1,189 @@
+================================================================================
+FIGHTPORT 4 — EA SPORTS UFC 4 (PORT DIRETO PARA PC)
+Versão: V2 (2.12.7.0)
+================================================================================
+
+O FightPort 4 V2 (2.12.7.0) é o inicializador dedicado, gestor de configurações 
+gráficas e extrator integrado de alta performance para o port nativo de PC de 
+EA SPORTS UFC 4 (PlayStation 4, CUSA14209 e CUSA14204, atualização oficial 28.00).
+
+O projeto conta com execução nativa em Vulkan de alto rendimento, reconstrução 
+gráfica avançada com múltiplos motores de upscaling (FSR, XeSS e DLSS), geração 
+de quadros (Frame Generation de 120 FPS até 6X), renderização neural por IA 
+(DLSS 5), baixa latência integrada, extrator automático de arquivos PKG e 
+personalização da Área de Trabalho com ícones de grandes atletas do UFC.
+
+================================================================================
+1. COMO USAR O FIGHTPORT 4 (GUIA PASSO A PASSO)
+================================================================================
+
+PASSO 1: EXTRAÇÃO DO JOGO (PRIMEIRA VEZ)
+1. Abra o inicializador "FightPort4.exe".
+2. Acesse a aba "EXTRAÇÃO DE PKG".
+3. Clique no botão "PROCURAR..." ao lado de "LIMPAR".
+4. Selecione os dois arquivos de uma só vez: o Jogo Base (CUSA14209 ou CUSA14204) 
+   e a Atualização Oficial Update 28.00 (utilize arquivos oficiais limpos; não 
+   utilize atualizações backport).
+5. O programa confere a integridade do cabeçalho PARAM.SFO de cada pacote.
+6. Clique no botão "Extrair para o Jogo": a extração e a mesclagem serão feitas 
+   de forma 100% automática diretamente para a pasta "games\UFC4".
+
+PASSO 2: CONFIGURAÇÕES GERAIS (ABA "CONFIGURAÇÕES")
+• Ajuste Resolução, Limite de FPS, Volume de Áudio (até 300% com som estéreo limpo), 
+  Idioma do jogo (Português Brasil ID 17) e Modo PS4 Pro (gráficos enriquecidos).
+• Clique no botão "SALVAR CONFIG.".
+
+PASSO 3: GRÁFICOS, UPSCALE E FRAME GENERATION (ABA "UPSCALE & FG")
+• Escolha o Motor de Upscaling (AMD FSR, Intel XeSS ou NVIDIA DLSS) e o Preset de 
+  Qualidade desejado (ex: Qualidade 1.5x).
+• Ative a Geração de Quadros para fluidez máxima (AMD FSR 3.1 FG, Intel XeFG ou Multi-Frame).
+• Ajuste o DLSS 5 Neural Rendering, Seletor de Timing e Redução Ativa de Latência.
+• Clique em "SALVAR CONFIG. DE VÍDEO".
+
+* Sincronização em Tempo Real: Você pode definir suas opções gráficas tanto pelo 
+  lado de fora no FightPort 4 quanto em tempo real durante as lutas através do 
+  menu do OptiScaler (pressionando a tecla "Insert" no teclado). As configurações 
+  permanecem perfeitamente sincronizadas entre o inicializador e o jogo.
+
+PASSO 4: CRIAR ATALHO PERSONALIZADO NA ÁREA DE TRABALHO
+• Na barra inferior da aba "CONFIGURAÇÕES", clique no botão "CRIAR ATALHO" 
+  (posicionado entre "SALVAR CONFIG." e "JOGAR").
+• Escolha o seu atleta favorito entre as 19 opções em alta resolução:
+  - Alex Poatan (2 variações)
+  - Anderson Silva (2 variações)
+  - Charles do Bronx (2 variações)
+  - Conor McGregor (2 variações)
+  - Georges St-Pierre (2 variações)
+  - Islam Makhachev (2 variações)
+  - Jon Jones (2 variações)
+  - José Aldo (2 variações)
+  - Khabib Nurmagomedov (2 variações)
+  - Logo Oficial FightPort 4
+• O atalho é criado ou atualizado na sua Área de Trabalho instantaneamente.
+
+PASSO 5: ENTRAR NO OCTÓGONO
+• Clique em "JOGAR" no FightPort 4 ou dê dois cliques no atalho da Área de Trabalho!
+
+================================================================================
+2. RECURSOS GRÁFICOS & TECNOLOGIAS (ABA "UPSCALE & FG")
+================================================================================
+
+A) MOTORES DE UPSCALE (UPSCALING ENGINE):
+   • AMD FSR 1.0, 2.2, 3.1 e FSR 4.1.1 (Super Resolução por IA).
+   • Intel XeSS 1.3 (Universal para todas as GPUs) e XeSS 2.0 (Alta precisão).
+   • NVIDIA DLSS 3.5 e DLSS 4.5 (Acelerados por hardware RTX).
+
+B) PRESETS DE QUALIDADE:
+   • Nativo (AA)          - Escala 1.0x (Qualidade nativa com Anti-Aliasing refinado)
+   • Qualidade            - Escala 1.5x (Excelente equilíbrio entre fidelidade e FPS)
+   • Equilibrado          - Escala 1.7x (Mais desempenho gráfico)
+   • Desempenho           - Escala 2.0x (Ideal para monitores 1440p e 4K)
+   • Ultra Desempenho     - Escala 3.0x (Ganho expressivo em taxas de quadros)
+
+C) PERFIS DLSS:
+   • Presets C, E, F, G e Preset M (sincronizado diretamente com os drivers NVIDIA).
+
+D) SELETOR DE EXECUÇÃO & TIMING:
+   • Controle dedicado de sincronização e alinhamento do pipeline de renderização.
+
+E) GERAÇÃO DE QUADROS (FRAME GENERATION):
+   • AMD FSR 3.1 FG (2X FPS • 120 FPS): Duplica a taxa de apresentação visual.
+   • Intel XeFG (2X FPS • 120 FPS): Interpolação via aceleradores de inteligência da GPU.
+   • Multi-Frame Generation 3X (180 FPS), 4X (240 FPS) e 6X.
+   • Dynamic MFG: Sincroniza dinamicamente a taxa de quadros com a taxa de Hz do seu monitor.
+
+F) NVIDIA DLSS 5 (NEURAL RENDERING):
+   • Reconstrução neural sub-pixel por IA (1 Pass, 2 Passes e NR + Frame Gen).
+
+G) REDUÇÃO ATIVA DE LATÊNCIA:
+   • NVIDIA Reflex, AMD Anti-Lag 2, Intel XeLL, LatencyFlex 2 e FightPort Limiter.
+
+H) ATUALIZAÇÃO AUTOMÁTICA DO UPSCALE:
+   • Botão "ATUALIZAR UPSCALE" na aba UPSCALE & FG: script integrado que atualiza 
+     as bibliotecas gráficas do OptiScaler com total segurança sem perder suas 
+     configurações e preferências.
+
+================================================================================
+3. CONTROLES E JOGABILIDADE
+================================================================================
+
+O FightPort 4 V2 possui reconhecimento automático de gamepads:
+• Controles Xbox (One, Series S/X, 360) via XInput (Plug & Play).
+• Controles PlayStation (DualShock 4 e DualSense).
+• Controles genéricos compatíveis com DirectInput / XInput.
+
+SUPORTE A 2 JOGADORES NO MESMO PC:
+• Conecte dois controles ao computador. O segundo controle entra automaticamente 
+  como Jogador 2 na tela de seleção de lutadores.
+• O menu interno de status dos controles e do port pode ser aberto a qualquer 
+  momento pelo teclado pressionando a tecla "Insert".
+
+JOGATINA ONLINE VIA PARSEC (1v1 PELA INTERNET):
+• Em "JOGABILIDADE", ative a opção "Modo Parsec (host online)" para fixar 60 FPS 
+  estáveis com baixa latência de transmissão.
+• Abra o aplicativo Parsec (parsec.app), compartilhe a sessão com seu amigo e 
+  jogue o modo 1v1 local pela internet.
+
+================================================================================
+4. ÁUDIO E SOM APRIMORADO
+================================================================================
+
+• O jogo original mixa o áudio em 7.1 surround. O port faz a conversão direta 
+  para 2.0 canais estéreo, garantindo que vozes, narração e impactos dos golpes 
+  soem claros e nítidos em qualquer fone de ouvido ou caixa de som convencional.
+• Barra de volume integrada no FightPort 4 (50% a 300%) com limitador contra 
+  estouros de áudio.
+
+================================================================================
+5. HARDWARE DE REFERÊNCIA & PERFORMANCE
+================================================================================
+
+Configuração recomendada e validada em testes reais:
+  • Placa de Vídeo: NVIDIA GeForce RTX 5060 Ti (8 GB VRAM)
+  • Processador:    Intel Core i5-14600K
+  • Memória RAM:    32 GB DDR4 (3200 MHz)
+  • Armazenamento:  SSD NVMe
+  • Sistema:        Windows 10 / 11 (64-bit)
+
+DESEMPENHO REAL COMPROVADO:
+• Com gráficos no modo PS4 Pro, resolução nativa Full HD ou 1440p: 87 a 110 FPS 
+  constantes nas trocas de golpes no octógono.
+• Com Frame Generation ativo (FSR FG ou XeFG): 110 a 120 FPS com fluidez máxima.
+
+COMPILAÇÃO DE SHADERS E INICIALIZAÇÃO DO PIPELINE:
+• Primeiros Minutos da 1ª Execução: Na primeira vez que você abrir o jogo, é totalmente 
+  normal notar pequenos engasgos (stuttering) durante os primeiros 2 minutos enquanto 
+  a placa de vídeo compila e grava os shaders em disco (%LOCALAPPDATA%\UFC4Native\user\cache). 
+  Após esse carregamento inicial, a jogabilidade fica 100% lisa e fluida.
+• Próximas Inicializações (Da 2ª em diante): Como os shaders já estarão gravados no cache, 
+  o jogo já abre e roda liso imediatamente, sem travadinhas.
+• Fechamento Único de Primeira Inicialização (Possível Crash Pontual): Em algumas máquinas, 
+  durante a primeira execução em que o cache e os buffers da GPU ainda estão sendo construídos, 
+  o jogo pode eventualmente fechar sozinho após alguns minutos. Caso isso aconteça, não se 
+  preocupe: trata-se de um evento pontual de inicialização. Basta reabrir o jogo e, a partir 
+  da segunda vez em diante, o jogo rodará contínuo e estável sem fechar (ou pode até mesmo 
+  já rodar liso de primeira sem fechar nenhuma vez).
+• Alternância entre Mailbox e V-Sync FIFO: Sempre que você alternar o modo de apresentação 
+  entre Mailbox e V-Sync FIFO nas opções de vídeo, o pipeline de sincronização é recriado. 
+  Por conta disso, essa troca pode provocar esse mesmo comportamento de fechamento pontual 
+  único após algum tempo de jogo na primeira partida do novo modo (ou pode não ocorrer). 
+  Se ocorrer, basta reabrir o jogo uma vez para jogar normalmente com estabilidade total.
+
+================================================================================
+6. LOCAL DOS ARQUIVOS E SALVAMENTOS
+================================================================================
+
+• Configurações do FightPort 4:    %LOCALAPPDATA%\FightPort4\fightport4.ini
+• Configurações do OptiScaler:     games\UFC4\bin\OptiScaler.ini
+• Galeria de Ícones (.ico e .png): Pasta src\icons\
+• Saves e Configurações do Jogo:   %LOCALAPPDATA%\UFC4Native\sacredfire.ini
+• Relatórios e Logs do Jogo:       %LOCALAPPDATA%\UFC4Native\logs\
+
+================================================================================
+Avisos Legais:
+FightPort 4 V2 (2.12.7.0) é um projeto de código aberto sob licença GPL-2.0-or-later.
+OptiScaler é de autoria de nitec e comunidade sob licença MIT.
+Sem afiliação com Electronic Arts, UFC ou Sony Interactive Entertainment.
+Nenhum arquivo protegido por direitos autorais do jogo é distribuído com este launcher;
+o usuário deve fornecer sua própria cópia legítima do jogo.
+================================================================================
