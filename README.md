@@ -27,7 +27,7 @@ Dedicated graphics configuration hub, performance launcher, and single-click PKG
 ### Visão Geral
 O **FightPort 4 V2 (2.12.7.0)** entrega a experiência mais avançada e moderna para jogar EA SPORTS UFC 4 no computador, executando sobre uma camada nativa de alta velocidade em **Vulkan**.
 
-Conta com injeção direta do **OptiScaler v0.1.34-with-dlss-fg** (desenvolvido por **nitec** e comunidade), disponibilizando múltiplos motores de reconstrução de imagem (AMD FSR, Intel XeSS e NVIDIA DLSS), geração de quadros (Frame Generation de 120 FPS até 6X / 240+ FPS), renderização neural por IA (DLSS 5), controle de latência ultra-baixa, áudio estéreo com volume amplificado e extrator nativo de PKG em botão único.
+Conta com injeção direta do **OptiScaler v0.1.34-with-dlss-fg** (desenvolvido por **nitec** e comunidade), disponibilizando múltiplos motores de reconstrução de imagem (AMD FSR, Intel XeSS e NVIDIA DLSS), geração de quadros (Frame Generation para até 240+ FPS), renderização neural em passada única por IA (DLSS 5), controle de latência ultra-baixa, áudio estéreo com volume amplificado e extrator nativo de PKG em botão único.
 
 ---
 
@@ -67,23 +67,30 @@ Personalize o executável oficial do jogo na sua Área de Trabalho com a foto do
 
 A versão V2 traz a tecnologia mais avançada de reconstrução sub-pixel via inteligência artificial para o octógono, aumentando a estabilidade temporal em grades, cordas e detalhes anatômicos dos atletas.
 
+> [!NOTE]
+> **Esclarecimento Técnico — Passada Única & Detalhes de Textura:**  
+> Nenhuma das imagens foi gerada com "duas passadas" de DLSS 5 e nem com duplicação de Frame Generation.  
+> O algoritmo DLSS 5 é executado em **passada única (1.0x)**. O que os comparativos demonstram é a escala de nitidez e preservação de **detalhes de textura**:
+> - **DLSS 5 com Textura 1.0x:** Reconstrução neural equilibrada com fidelidade nativa 1.0x, garantindo combate limpo e sem artefatos em movimentos rápidos.
+> - **DLSS 5 com Detalhes de Textura em 2.0x:** Ampliação da densidade de microtexturas anatômicas (suor, pele, luvas, lona e malha do octógono) elevada até 2.0x sob a mesma passada neural.
+
 #### 1. Visão Geral da Tecnologia (DLSS 5 Detail)
-Inferência neural multipass combinando super-resolução com nitidez avançada em combate:
+Visão consolidada da reconstrução neural em passada única com análise comparativa de detalhes de textura:
 
 ![Visão Geral e Detalhes do DLSS 5](assets/screenshots/dlss5_detail.png)
 
-#### 2. Comparativo de Reconstrução: DLSS 2 (2X)
-Demonstração da preservação de linhas e sombreamento na malha do octógono:
+#### 2. Comparativo de Reconstrução: DLSS 2 vs Detalhes Aprimorados (2X)
+Demonstração da preservação de linhas, malha do octógono e nitidez entre os métodos:
 
 ![Comparativo DLSS 2 em 2X](assets/screenshots/Compare_dlss_detail_2x.png)
 
-#### 3. DLSS 5 Neural Rendering (Passe 1X)
-Reconstrução neural equilibrada com alta estabilidade e sem ruídos em cenas de ação rápida:
+#### 3. DLSS 5 Neural Rendering (Textura Base 1.0x)
+Reconstrução neural em passada única com texturas em 1.0x — máxima estabilidade temporal e resposta limpa:
 
 ![DLSS 5 Detail 1X](assets/screenshots/dlss5_detail_1x.png)
 
-#### 4. DLSS 5 Neural Rendering (Passe 2X de Alta Densidade)
-Máxima densidade sub-pixel e definição em nível de transmissão televisiva:
+#### 4. DLSS 5 Neural Rendering (Detalhes de Textura Ampliados para 2.0x)
+Passada única de DLSS 5 com nitidez e microtexturas anatômicas ampliadas até 2.0x — máxima definição sub-pixel em nível de transmissão televisiva:
 
 ![DLSS 5 Detail 2X](assets/screenshots/dlss5_detail_2x.png)
 
@@ -148,7 +155,7 @@ Featuring integrated **OptiScaler v0.1.34-with-dlss-fg** (developed by **nitec**
 
 ### Key Features
 - **Bidirectional In-Game & Launcher Sync:** Adjust graphics inside the launcher before playing or hit `Insert` during combat to tweak OptiScaler overlay settings in real time.
-- **Next-Gen Upscaling & Frame Gen:** Support for AMD FSR (1.0 to 4.1.1), Intel XeSS (1.3 & 2.0), NVIDIA DLSS (3.5 & 4.5), and Frame Generation up to 240+ Hz.
+- **Next-Gen Upscaling & Frame Gen:** Support for AMD FSR (1.0 to 4.1.1), Intel XeSS (1.3 & 2.0), NVIDIA DLSS (3.5 & 4.5), single-pass DLSS 5 neural rendering with 1.0x to 2.0x texture detail enhancement (no multi-pass or doubled Frame Gen), and Frame Generation up to 240+ Hz.
 - **One-Click PKG Installer:** Automated extraction and patch-merging from the `EXTRAÇÃO DE PKG` tab.
 - **Audio Overhaul:** Clean downmixing of 7.1 surround sound into crisp 2-channel stereo with volume amplification up to 300%.
 - **Portable & Setup Options:** Distributed both as a portable `.zip` and an automated `.exe` installer.
