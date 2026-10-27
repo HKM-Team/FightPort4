@@ -210,21 +210,7 @@ if (Test-Path $NewLicDir) {
     Write-Host "  [OK] Arquivos de licença atualizados" -ForegroundColor DarkGray
 }
 
-# Sincronizar réplica secundária se existir (ex: "Nova pasta\FightPort4_V2")
-$Secondary = "D:\GAMES\PlayStation_4\Nova pasta\FightPort4_V2\games\UFC4\bin"
-if (Test-Path $Secondary) {
-    try {
-        Write-Host "Sincronizando também na pasta réplica de segurança..." -ForegroundColor Cyan
-        Copy-Item -Path (Join-Path $GameBin "winmm.dll") -Destination (Join-Path $Secondary "winmm.dll") -Force -ErrorAction SilentlyContinue
-        Copy-Item -Path (Join-Path $GameBin "OptiScaler.dll") -Destination (Join-Path $Secondary "OptiScaler.dll") -Force -ErrorAction SilentlyContinue
-        Copy-Item -Path (Join-Path $GameBin "OptiScaler.ini") -Destination (Join-Path $Secondary "OptiScaler.ini") -Force -ErrorAction SilentlyContinue
-        Copy-Item -Path (Join-Path $GameBin "nvngx.dll_dlssnr.dll") -Destination (Join-Path $Secondary "nvngx.dll_dlssnr.dll") -Force -ErrorAction SilentlyContinue
-        Copy-Item -Path $GameOptiScalerDir -Destination (Join-Path $Secondary "OptiScaler") -Recurse -Force -ErrorAction SilentlyContinue
-        Write-Host "  [OK] Réplica sincronizada com sucesso" -ForegroundColor Green
-    } catch {
-        Write-Host "  [INFO] Pasta réplica ignorada." -ForegroundColor DarkGray
-    }
-}
+
 
 Write-Host ""
 Write-Host "======================================================================" -ForegroundColor Cyan

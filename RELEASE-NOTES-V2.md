@@ -1,14 +1,14 @@
-# FightPort 4 — Versão V2 (2.12.7.0) (Release Notes)
+# FightPort 4 — Versão V2 (2.12.8.0) (Release Notes)
 
 **Data de Lançamento:** Outubro de 2026  
 **Status:** Versão Oficial Estável (V2)  
-**Versão do Executável:** V2 (2.12.7.0)
+**Versão do Executável:** V2 (2.12.8.0)
 
 ---
 
-## 🥊 Principais Destaques da Versão V2 (2.12.7.0)
+## 🥊 Principais Destaques da Versão V2 (2.12.8.0)
 
-A versão **V2 (2.12.7.0)** do FightPort 4 é a maior e mais refinada atualização gráfica, tecnológica e de usabilidade lançada para o projeto, integrando o **OptiScaler v0.1.34-with-dlss-fg** diretamente na estrutura do port para fornecer reconstrução gráfica de última geração, múltiplos motores de upscaling (FSR, XeSS e DLSS), geração de quadros (Frame Generation de 120 FPS até 6X), renderização neural (DLSS 5), sincronização total em tempo real e estabilidade aprimorada para sessões contínuas de combate.
+A versão **V2 (2.12.8.0)** do FightPort 4 é a maior e mais refinada atualização gráfica, tecnológica e de usabilidade lançada para o projeto, integrando o **OptiScaler v0.1.34-with-dlss-fg** diretamente na estrutura do port para fornecer reconstrução gráfica de última geração, múltiplos motores de upscaling (FSR, XeSS e DLSS), geração de quadros (Frame Generation de 120 FPS até 6X), renderização neural (DLSS 5), sincronização total em tempo real e estabilidade aprimorada para sessões contínuas de combate.
 
 ---
 
@@ -94,4 +94,4 @@ A versão **V2 (2.12.7.0)** do FightPort 4 é a maior e mais refinada atualizaç
 ### 7. Estabilidade e Desempenho
 - **Sessões Longas e Trocas de Atletas:** Reforçada a rotina de gerenciamento de memória gráfica, prevenindo travamentos em transições de cutscenes e trocas sucessivas de lutadores.
 - **Áudio Cristalino em 2 Canais:** Conversão automática de 7.1 surround para 2.0 estéreo, garantindo vozes e impactos nítidos com volume ajustável até 300%.
-- **Registro Oficial da Versão:** Registrado oficialmente como **V2 (2.12.7.0)** no executável `FightPort4.exe` (`app.rc`, janela "Sobre" e propriedades do arquivo).
+- **Registro Oficial da Versão:** Registrado oficialmente como **V2 (2.12.8.0)** no executável `FightPort4.exe` (`app.rc`, janela "Sobre" e propriedades do arquivo).

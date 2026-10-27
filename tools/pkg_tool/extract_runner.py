@@ -167,9 +167,8 @@ def main():
     search_dirs = [
         os.getcwd(),
         os.path.dirname(os.getcwd()),
-        r"D:\GAMES\PlayStation_4\meu\meuport",
-        r"D:\GAMES\PlayStation_4",
-        r"D:\GAMES\PlayStation_4\UFC_4",
+        os.path.join(os.getcwd(), "tools", "pkg_tool"),
+        script_dir,
     ]
     for d in search_dirs:
         cand = os.path.join(d, "PS4 PKG Tool.exe")

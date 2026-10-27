@@ -1,6 +1,6 @@
 # UFC 4 Native Port — Release Notes
 
-## V2 (2.12.7.0) (FightPort 4 V2)
+## V2 (2.12.8.0) (FightPort 4 V2)
 
 - **Injeção do OptiScaler v0.1.34-with-dlss-fg (créditos ao desenvolvedor nitec e comunidade)**:
   - Injetado diretamente dentro do port através de `bin/winmm.dll`.

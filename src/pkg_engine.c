@@ -425,12 +425,7 @@ static BOOL FindPythonExe(wchar_t *outPath, size_t maxLen)
     _snwprintf(p, MAX_PATH, L"%s\\games\\UFC4\\python\\python.exe", cand);
     if (PathFileExistsW(p)) { wcsncpy(outPath, p, maxLen); return TRUE; }
 
-    if (PathFileExistsW(L"D:\\GAMES\\PlayStation_4\\meu\\meuport\\games\\UFC4\\python\\python.exe")) {
-        wcsncpy(outPath, L"D:\\GAMES\\PlayStation_4\\meu\\meuport\\games\\UFC4\\python\\python.exe", maxLen);
-        return TRUE;
-    }
-
-    _snwprintf(p, MAX_PATH, L"%s\\python\\python.exe", cand);
+_snwprintf(p, MAX_PATH, L"%s\\python\\python.exe", cand);
     if (PathFileExistsW(p)) { wcsncpy(outPath, p, maxLen); return TRUE; }
 
     wchar_t parent[MAX_PATH];
@@ -454,12 +449,7 @@ static BOOL FindRunnerScript(wchar_t *outPath, size_t maxLen)
     _snwprintf(p, MAX_PATH, L"%s\\tools\\pkg_tool\\extract_runner.py", cand);
     if (PathFileExistsW(p)) { wcsncpy(outPath, p, maxLen); return TRUE; }
 
-    if (PathFileExistsW(L"D:\\GAMES\\PlayStation_4\\meu\\meuport\\tools\\pkg_tool\\extract_runner.py")) {
-        wcsncpy(outPath, L"D:\\GAMES\\PlayStation_4\\meu\\meuport\\tools\\pkg_tool\\extract_runner.py", maxLen);
-        return TRUE;
-    }
-
-    _snwprintf(p, MAX_PATH, L"%s\\extract_runner.py", cand);
+_snwprintf(p, MAX_PATH, L"%s\\extract_runner.py", cand);
     if (PathFileExistsW(p)) { wcsncpy(outPath, p, maxLen); return TRUE; }
 
     return FALSE;

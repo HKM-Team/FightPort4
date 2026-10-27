@@ -3039,13 +3039,13 @@ static BOOL PromptAndPrepareExtractionFolder(HWND parent, wchar_t *outDest, size
         g_lang ? L"Select the location (drive or folder) where you want to install UFC 4.\n\n"
                  L"AUTOMATIC FOLDER CREATION:\n"
                  L"A folder named \"EA_Sports_UFC_4\" will be created AUTOMATICALLY inside your chosen location.\n"
-                 L"You only need to select the parent folder or drive (e.g. D:\\GAMES\\PlayStation_4 or C:\\Games).\n\n"
+                 L"You only need to select the parent folder or drive (e.g. D:\\Games or C:\\Games).\n\n"
                  L"Do NOT manually create another folder with this name to prevent duplicate nested folders.\n\n"
                  L"Click \"CONTINUE\" to choose the destination folder in the file explorer."
                : L"Escolha o local (disco ou pasta) onde deseja instalar o UFC 4.\n\n"
                  L"CRIAÇÃO AUTOMÁTICA DE PASTA:\n"
                  L"A pasta \"EA_Sports_UFC_4\" será criada AUTOMATICAMENTE dentro do local selecionado.\n"
-                 L"Você só precisa selecionar a pasta pai ou disco (ex: D:\\GAMES\\PlayStation_4 ou C:\\Jogos).\n\n"
+                 L"Você só precisa selecionar a pasta pai ou disco (ex: D:\\Jogos ou C:\\Jogos).\n\n"
                  L"NÃO crie uma pasta com este nome manualmente para evitar pastas duplicadas.\n\n"
                  L"Clique em \"CONTINUAR\" para selecionar a pasta de destino no explorador de arquivos.",
         THEMED_MODAL_OKCANCEL, THEMED_ICON_INFO,
@@ -3881,10 +3881,11 @@ static void SyncGraphicsConfig(int g)
             break;
         case 1: /* Auto */
             WritePrivateProfileStringW(L"Framerate", L"LowLatencyInput", L"auto", iniPath);
-            WritePrivateProfileStringW(L"Framerate", L"LowLatencyOutput", L"auto", iniPath);
+            WritePrivateProfileStringW(L"Framerate", L"LowLatencyOutput", isNvidia ? L"reflex" : L"auto", iniPath);
             WritePrivateProfileStringW(L"Framerate", L"FrameCapOnly", L"false", iniPath);
             WritePrivateProfileStringW(L"fakenvapi", L"UseFakenvapi", L"true", iniPath);
-            WritePrivateProfileStringW(L"fakenvapi", L"ForceReflex", isNvidia ? L"2" : L"0", iniPath);
+            /* With XeFG (fg >= 2), if ForceReflex != 0 OptiScaler forces XeLL sleep pacing which freezes gamepad rumble on NVIDIA. Set 0 on XeFG. */
+            WritePrivateProfileStringW(L"fakenvapi", L"ForceReflex", (isNvidia && fg < 2) ? L"2" : L"0", iniPath);
             WritePrivateProfileStringW(L"fakenvapi", L"ForceXeLL", L"false", iniPath);
             WritePrivateProfileStringW(L"fakenvapi", L"ForceLatencyFlex", L"false", iniPath);
             break;
@@ -3893,7 +3894,7 @@ static void SyncGraphicsConfig(int g)
             WritePrivateProfileStringW(L"Framerate", L"LowLatencyOutput", L"reflex", iniPath);
             WritePrivateProfileStringW(L"Framerate", L"FrameCapOnly", L"false", iniPath);
             WritePrivateProfileStringW(L"fakenvapi", L"UseFakenvapi", L"true", iniPath);
-            WritePrivateProfileStringW(L"fakenvapi", L"ForceReflex", L"2", iniPath);
+            WritePrivateProfileStringW(L"fakenvapi", L"ForceReflex", (fg >= 2) ? L"0" : L"2", iniPath);
             WritePrivateProfileStringW(L"fakenvapi", L"ForceXeLL", L"false", iniPath);
             WritePrivateProfileStringW(L"fakenvapi", L"ForceLatencyFlex", L"false", iniPath);
             break;
@@ -3910,12 +3911,14 @@ static void SyncGraphicsConfig(int g)
 
     /* 5. Frame Generation (FSR 3.1 FG, Intel XeFG & Multi-Frame 3X-6X / DMFG) */
     WritePrivateProfileStringW(L"FrameGen", L"External", L"false", iniPath);
+    /* UFC 4 is a PS4 runtime port without native PC DLSSG/FSRFG calls. FGInput MUST remain 'upscaler' to avoid broken FG! */
     WritePrivateProfileStringW(L"FrameGen", L"FGInput", L"upscaler", iniPath);
     WritePrivateProfileStringW(L"FrameGen", L"FGShortcutKey", L"0x23", iniPath); /* END Key */
     WritePrivateProfileStringW(L"Hooks", L"EnableHotSwapping", L"true", iniPath);
 
     if (fg == 0) {
         WritePrivateProfileStringW(L"FrameGen", L"Enabled", L"false", iniPath);
+        WritePrivateProfileStringW(L"MFGUnlock", L"XeFG", L"auto", iniPath);
         WritePrivateProfileStringW(L"Framerate", L"FramerateLimit", L"0.0", iniPath);
     } else {
         WritePrivateProfileStringW(L"FrameGen", L"Enabled", L"true", iniPath);
@@ -3935,6 +3938,14 @@ static void SyncGraphicsConfig(int g)
         WritePrivateProfileStringW(L"DLSSG", L"OverrideForceDMFG", dmfgStr, iniPath);
         WritePrivateProfileStringW(L"XeFG", L"InterpolationCount", icStr, iniPath);
         WritePrivateProfileStringW(L"XeFG", L"DynamicMFG", dmfgStr, iniPath);
+
+        /* Auto-unlock XeFG for multi-frame and ensure Reflex handles latency on NVIDIA without XeLL sleep stalls */
+        if (fg >= 2) {
+            WritePrivateProfileStringW(L"MFGUnlock", L"XeFG", L"true", iniPath);
+            WritePrivateProfileStringW(L"XeFG", L"LowLatencyOutput", isNvidia ? L"reflex" : L"auto", iniPath);
+        } else {
+            WritePrivateProfileStringW(L"MFGUnlock", L"XeFG", L"auto", iniPath);
+        }
         WritePrivateProfileStringW(L"Framerate", L"FramerateLimit", L"0.0", iniPath);
     }
 
@@ -4066,7 +4077,7 @@ static void About(void)
 {
     const wchar_t *msg = g_lang ?
         L"FightPort 4 — EA SPORTS UFC 4 (Native PC Port)\n"
-        L"Version V2 (2.12.7.0)\n\n"
+        L"Version V2 (2.12.8.0)\n\n"
         L"Created, Integrated & Maintained by FightPort Team.\n\n"
         L"Features ultra-low latency input cut, next-gen neural rendering, live graphics reconstruction, "
         L"dynamic frame generation (2X - 6X) and direct desktop game launching.\n\n"
@@ -4076,7 +4087,7 @@ static void About(void)
         L"GPL-2.0-or-later license, source code available in the src folder.\n\n"
         L"Not affiliated with Electronic Arts, UFC or Sony. Requires your own legal copy of the game." :
         L"FightPort 4 — EA SPORTS UFC 4 (Port Direto para PC)\n"
-        L"Versão V2 (2.12.7.0)\n\n"
+        L"Versão V2 (2.12.8.0)\n\n"
         L"Criado, Integrado & Customizado por FightPort Team.\n\n"
         L"Gerenciador dedicado do port nativo para PC com corte ativo de latência, "
         L"renderização neural de última geração, reconstrução gráfica em tempo real, "
@@ -4787,26 +4798,8 @@ int WINAPI wWinMain(HINSTANCE inst, HINSTANCE prev, PWSTR cmdline, int show)
     InitSplashParticles(SC(BASE_W), SC(BASE_H));
     SetTimer(w, 999, 16, NULL);
 
-    /* Pre-load detected PKGs if available */
+    /* Pre-load detected PKGs if available in launcher directory */
     {
-        const wchar_t *knownBase = L"D:\\GAMES\\PlayStation_4\\UFC_4\\EA.SPORTS.UFC.4_CUSA14209_v1.00_[7.50]_OPOISSO893.pkg";
-        const wchar_t *knownPatch = L"D:\\GAMES\\PlayStation_4\\UFC_4\\EA.SPORTS.UFC.4_CUSA14209_v28.00_[7.50]-PS4.pkg";
-        if (FileExists(knownBase)) LoadPkgPath(knownBase);
-        if (FileExists(knownPatch)) LoadPkgPath(knownPatch);
-
-        const wchar_t *knownBase2 = L"D:\\GAMES\\PlayStation_4\\EA SPORTS\u2122 UFC\u00AE 4\\EA.SPORTS.UFC.4_CUSA14209_v1.00_[7.50]_OPOISSO893.pkg";
-        const wchar_t *knownPatch2 = L"D:\\GAMES\\PlayStation_4\\EA SPORTS\u2122 UFC\u00AE 4\\EA.SPORTS.UFC.4_CUSA14209_v28.00_[7.50]-PS4.pkg";
-        if (FileExists(knownBase2)) LoadPkgPath(knownBase2);
-        if (FileExists(knownPatch2)) LoadPkgPath(knownPatch2);
-
-        const wchar_t *knownBase3 = L"D:\\GAMES\\PlayStation_4\\EA_Sports_UFC_4\\EA.SPORTS.UFC.4_CUSA14209_v1.00_[7.50]_OPOISSO893.pkg";
-        const wchar_t *knownPatch3 = L"D:\\GAMES\\PlayStation_4\\EA_Sports_UFC_4\\EA.SPORTS.UFC.4_CUSA14209_v28.00_[7.50]-PS4.pkg";
-        if (FileExists(knownBase3)) LoadPkgPath(knownBase3);
-        if (FileExists(knownPatch3)) LoadPkgPath(knownPatch3);
-
-        const wchar_t *knownDlBase = L"C:\\Users\\hindl\\Downloads\\EA Sports UFC 4\\EA.SPORTS.UFC.4_CUSA14209_v1.00_[7.50]_OPOISSO893.pkg";
-        if (FileExists(knownDlBase) && !g_haveBase) LoadPkgPath(knownDlBase);
-
         wchar_t pat[MAX_PATH]; Join(pat, g_exeDir, L"*.pkg");
         WIN32_FIND_DATAW pfd; HANDLE hFind = FindFirstFileW(pat, &pfd);
         if (hFind != INVALID_HANDLE_VALUE) {

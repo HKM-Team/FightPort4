@@ -1,9 +1,9 @@
 ================================================================================
 FIGHTPORT 4 — EA SPORTS UFC 4 (PORT DIRETO PARA PC)
-Versão: V2 (2.12.7.0)
+Versão: V2 (2.12.8.0)
 ================================================================================
 
-O FightPort 4 V2 (2.12.7.0) é o inicializador dedicado, gestor de configurações 
+O FightPort 4 V2 (2.12.8.0) é o inicializador dedicado, gestor de configurações 
 gráficas e extrator integrado de alta performance para o port nativo de PC de 
 EA SPORTS UFC 4 (PlayStation 4, CUSA14209 e CUSA14204, atualização oficial 28.00).
 
@@ -181,7 +181,7 @@ COMPILAÇÃO DE SHADERS E INICIALIZAÇÃO DO PIPELINE:
 
 ================================================================================
 Avisos Legais:
-FightPort 4 V2 (2.12.7.0) é um projeto de código aberto sob licença GPL-2.0-or-later.
+FightPort 4 V2 (2.12.8.0) é um projeto de código aberto sob licença GPL-2.0-or-later.
 OptiScaler é de autoria de nitec e comunidade sob licença MIT.
 Sem afiliação com Electronic Arts, UFC ou Sony Interactive Entertainment.
 Nenhum arquivo protegido por direitos autorais do jogo é distribuído com este launcher;
