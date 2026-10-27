@@ -46,7 +46,7 @@ Instalação facilitada em botão único: selecione simultaneamente o Jogo Base 
 ![Extrator Nativo de PKG](assets/screenshots/ext_pkg_v2.png)
 
 #### 3. Motores de Reconstrução & Frame Generation (Aba `UPSCALE & FG`)
-Personalize os melhores filtros gráficos do mercado (FSR 1.0 a 4.1.1, XeSS 1.3 a 2.0, DLSS 3.5 e 4.5), ative a Geração de Quadros para até 240 FPS e controle a renderização neural com sincronização em tempo real (tecla `Insert` durante a luta).
+Personalize os melhores filtros gráficos do mercado (FSR 1.0 a 4.1.1, XeSS 1.3 a 2.0, DLSS Segunda Geração / Preset M, 3.5 e 4.5), ative a Geração de Quadros para até 240 FPS e controle a renderização neural com sincronização em tempo real (tecla `Insert` durante a luta).
 
 ![Aba de Upscale e Frame Generation](assets/screenshots/upscale_v2.png)
 
@@ -74,15 +74,27 @@ A versão V2 traz a tecnologia mais avançada de reconstrução sub-pixel via in
 > - **DLSS 5 com Textura 1.0x:** Reconstrução neural equilibrada com fidelidade nativa 1.0x, garantindo combate limpo e sem artefatos em movimentos rápidos.
 > - **DLSS 5 com Detalhes de Textura em 2.0x:** Ampliação da densidade de microtexturas anatômicas (suor, pele, luvas, lona e malha do octógono) elevada até 2.0x sob a mesma passada neural.
 
+> [!TIP]
+> **Foco do DLSS 5 & Recomendações de Desempenho e FPS:**  
+> - **Foco nos Personagens:** O DLSS 5 foi especialmente desenvolvido para aprimorar os aspectos visuais dos lutadores em si. O foco principal está na **pele, cabelo e barba**.  
+> - **Cenário e Vestimentas:** O fundo e o ambiente não são alterados, enquanto detalhes de texturas em roupas e luvas recebem aplicação leve para manter o combate ágil e responsivo.  
+> - **Ajuste em Tempo Real (`Insert`):** Todos esses parâmetros podem ser ajustados diretamente no menu do OptiScaler apertando a tecla `Insert` durante a luta.  
+> - ⚠️ **Atenção ao Custo de Desempenho:** Lembre-se de que quanto mais você aumentar os detalhes (seja de roupas, seja do ambiente), mais pesado o jogo fica e menos FPS você terá. E quanto menos FPS você tiver, maior a chance de ocorrer efeito de arrasto (*ghosting*). Para a melhor experiência competitiva e máxima nitidez, mantenha os detalhes calibrados nos lutadores.
+
 #### 1. Visão Geral da Tecnologia (DLSS 5 Detail)
 Visão consolidada da reconstrução neural em passada única com análise comparativa de detalhes de textura:
 
 ![Visão Geral e Detalhes do DLSS 5](assets/screenshots/dlss5_detail.png)
 
-#### 2. Comparativo de Reconstrução: DLSS 2 vs Detalhes Aprimorados (2X)
-Demonstração da preservação de linhas, malha do octógono e nitidez entre os métodos:
+#### 2. Comparativo de Reconstrução: DLSS Segunda Geração (Preset M) vs Detalhes Aprimorados (2X)
+Demonstração comparativa entre o DLSS de Segunda Geração e os modos com detalhes refinados:
 
-![Comparativo DLSS 2 em 2X](assets/screenshots/Compare_dlss_detail_2x.png)
+![Comparativo DLSS Segunda Geração vs Detalhes Aprimorados](assets/screenshots/Compare_dlss_detail_2x.png)
+![Comparativo DLSS 5: 2x vs 1x Bem Ajustada](assets/screenshots/Compare_dlss5_detail_2x.png)
+
+**Análise dos Painéis Comparativos:**
+- **Painel Superior (`Compare_dlss_detail_2x.png`):** Confronto do DLSS Segunda Geração (Preset M) contra os detalhes ampliados em 2.0x, evidenciando o ganho de definição na malha do octógono e silhueta dos lutadores.
+- **Painel Inferior (`Compare_dlss5_detail_2x.png`):** Teste comparativo entre aplicar **duas passadas (imagem da esquerda)** versus aplicar **uma única passada bem ajustada (imagem da direita)**. O que muda fundamentalmente são os valores aplicados: a passada única com valores precisamente ajustados supera duas passadas, entregando mais estabilidade temporal, menos artefatos e muito mais desempenho.
 
 #### 3. DLSS 5 Neural Rendering (Textura Base 1.0x)
 Reconstrução neural em passada única com texturas em 1.0x — máxima estabilidade temporal e resposta limpa:
@@ -151,11 +163,11 @@ O FightPort 4 é escrito em C nativo com as APIs do Windows (Win32 e GDI+):
 
 ### Overview
 FightPort 4 V2 delivers an ultra-smooth, responsive PC experience for EA SPORTS UFC 4, running over a high-performance native **Vulkan** translation pipeline.
-Featuring integrated **OptiScaler v0.1.34-with-dlss-fg** (developed by **nitec** & community), it provides next-gen image upscaling (FSR, XeSS, DLSS), Frame Generation (from 120 FPS up to 6X MFG), neural rendering (DLSS 5), active latency mitigation, high-clarity 2.0 stereo audio, full controller support, and integrated one-click PKG extraction.
+Featuring integrated **OptiScaler v0.1.34-with-dlss-fg** (developed by **nitec** & community), it provides next-gen image upscaling (FSR, XeSS, DLSS), Frame Generation (up to 240+ FPS), neural rendering (DLSS 5), active latency mitigation, high-clarity 2.0 stereo audio, full controller support, and integrated one-click PKG extraction.
 
 ### Key Features
 - **Bidirectional In-Game & Launcher Sync:** Adjust graphics inside the launcher before playing or hit `Insert` during combat to tweak OptiScaler overlay settings in real time.
-- **Next-Gen Upscaling & Frame Gen:** Support for AMD FSR (1.0 to 4.1.1), Intel XeSS (1.3 & 2.0), NVIDIA DLSS (3.5 & 4.5), single-pass DLSS 5 neural rendering with 1.0x to 2.0x texture detail enhancement (no multi-pass or doubled Frame Gen), and Frame Generation up to 240+ Hz.
+- **Next-Gen Upscaling & Frame Gen:** Support for AMD FSR (1.0 to 4.1.1), Intel XeSS (1.3 & 2.0), NVIDIA DLSS (2nd Gen Preset M, 3.5 & 4.5), single-pass DLSS 5 character-focused neural rendering (skin, hair, beard) with 1.0x to 2.0x texture detail tuning via in-game `Insert` menu, and Frame Generation up to 240+ Hz.
 - **One-Click PKG Installer:** Automated extraction and patch-merging from the `EXTRAÇÃO DE PKG` tab.
 - **Audio Overhaul:** Clean downmixing of 7.1 surround sound into crisp 2-channel stereo with volume amplification up to 300%.
 - **Portable & Setup Options:** Distributed both as a portable `.zip` and an automated `.exe` installer.
