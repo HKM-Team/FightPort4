@@ -1,6 +1,6 @@
 # FightPort 4 V2 (2.12.7.0) — EA SPORTS UFC 4 Native PC Port Launcher
 
-[![Discord](https://img.shields.io/badge/Discord-Comunidade%20Oficial-5865F2?logo=discord&logoColor=white)](https://discord.gg/sRCaE57yn)
+[![Discord](https://img.shields.io/badge/Discord-Comunidade%20Oficial-5865F2?logo=discord&logoColor=white)](https://discord.gg/WMjRCmD9eF)
 [![Versão](https://img.shields.io/badge/Vers%C3%A3o-V2%20(2.12.7.0)-gold.svg)](#)
 [![Equipe](https://img.shields.io/badge/Mantido%20por-HKM%20Team-blue.svg)](https://github.com/HKM-Team)
 [![Licença](https://img.shields.io/badge/Licen%C3%A7a-GPL--2.0--or--later-green.svg)](licenses/LICENSE-GPL-2.0.txt)
@@ -13,7 +13,7 @@ Dedicated graphics configuration hub, performance launcher, and single-click PKG
 > **Quer trocar uma ideia com a comunidade, acompanhar novidades ou precisa de suporte técnico para configurar e rodar os executáveis?**
 >
 > 🎮 **Servidor Oficial da HKM Team no Discord:**  
-> 👉 [https://discord.gg/sRCaE57yn](https://discord.gg/sRCaE57yn)
+> 👉 [https://discord.gg/WMjRCmD9eF](https://discord.gg/WMjRCmD9eF)
 >
 > ⚠️ **AVISO OBRIGATÓRIO — ARQUIVOS DO JOGO NÃO INCLUSOS:**  
 > **Ao baixar este inicializador (launcher), o jogo NÃO vem junto!**  
