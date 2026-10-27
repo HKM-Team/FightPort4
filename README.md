@@ -67,13 +67,6 @@ Personalize o executável oficial do jogo na sua Área de Trabalho com a foto do
 
 A versão V2 traz a tecnologia mais avançada de reconstrução sub-pixel via inteligência artificial para o octógono, aumentando a estabilidade temporal em grades, cordas e detalhes anatômicos dos atletas.
 
-> [!NOTE]
-> **Esclarecimento Técnico — Passada Única & Detalhes de Textura:**  
-> Nenhuma das imagens foi gerada com "duas passadas" de DLSS 5 e nem com duplicação de Frame Generation.  
-> O algoritmo DLSS 5 é executado em **passada única (1.0x)**. O que os comparativos demonstram é a escala de nitidez e preservação de **detalhes de textura**:
-> - **DLSS 5 com Textura 1.0x:** Reconstrução neural equilibrada com fidelidade nativa 1.0x, garantindo combate limpo e sem artefatos em movimentos rápidos.
-> - **DLSS 5 com Detalhes de Textura em 2.0x:** Ampliação da densidade de microtexturas anatômicas (suor, pele, luvas, lona e malha do octógono) elevada até 2.0x sob a mesma passada neural.
-
 > [!TIP]
 > **Foco do DLSS 5 & Recomendações de Desempenho e FPS:**  
 > - **Foco nos Personagens:** O DLSS 5 foi especialmente desenvolvido para aprimorar os aspectos visuais dos lutadores em si. O foco principal está na **pele, cabelo e barba**.  
@@ -86,15 +79,15 @@ Visão consolidada da reconstrução neural em passada única com análise compa
 
 ![Visão Geral e Detalhes do DLSS 5](assets/screenshots/dlss5_detail.png)
 
-#### 2. Comparativo de Reconstrução: DLSS Segunda Geração (Preset M) vs Detalhes Aprimorados (2X)
+#### 2. Comparativo de Reconstrução: DLSS Segunda Geração (Preset M) vs Detalhes Aprimorados
 Demonstração comparativa entre o DLSS de Segunda Geração e os modos com detalhes refinados:
 
 ![Comparativo DLSS Segunda Geração vs Detalhes Aprimorados](assets/screenshots/Compare_dlss_detail_2x.png)
 ![Comparativo DLSS 5: 2x vs 1x Bem Ajustada](assets/screenshots/Compare_dlss5_detail_2x.png)
 
 **Análise dos Painéis Comparativos:**
-- **Painel Superior (`Compare_dlss_detail_2x.png`):** Confronto do DLSS Segunda Geração (Preset M) contra os detalhes ampliados em 2.0x, evidenciando o ganho de definição na malha do octógono e silhueta dos lutadores.
-- **Painel Inferior (`Compare_dlss5_detail_2x.png`):** Teste comparativo entre aplicar **duas passadas (imagem da esquerda)** versus aplicar **uma única passada bem ajustada (imagem da direita)**. O que muda fundamentalmente são os valores aplicados: a passada única com valores precisamente ajustados supera duas passadas, entregando mais estabilidade temporal, menos artefatos e muito mais desempenho.
+- **Painel Superior:** Confronto do DLSS Segunda Geração (Preset M) contra os detalhes ampliados em 1.5x, evidenciando o ganho de definição na malha do octógono e silhueta dos lutadores.
+- **Painel Inferior:** Teste comparativo entre aplicar duas passadas (imagem da esquerda) versus aplicar uma única passada com os detalhes ampliados em 2.0x (imagem da direita). O que muda fundamentalmente são os valores aplicados: a passada única com valores precisamente ajustados supera duas passadas, entregando mais estabilidade temporal, menos artefatos e muito mais desempenho.
 
 #### 3. DLSS 5 Neural Rendering (Textura Base 1.0x)
 Reconstrução neural em passada única com texturas em 1.0x — máxima estabilidade temporal e resposta limpa:
@@ -164,6 +157,13 @@ O FightPort 4 é escrito em C nativo com as APIs do Windows (Win32 e GDI+):
 ### Overview
 FightPort 4 V2 delivers an ultra-smooth, responsive PC experience for EA SPORTS UFC 4, running over a high-performance native **Vulkan** translation pipeline.
 Featuring integrated **OptiScaler v0.1.34-with-dlss-fg** (developed by **nitec** & community), it provides next-gen image upscaling (FSR, XeSS, DLSS), Frame Generation (up to 240+ FPS), neural rendering (DLSS 5), active latency mitigation, high-clarity 2.0 stereo audio, full controller support, and integrated one-click PKG extraction.
+
+> [!TIP]
+> **DLSS 5 Character Focus & Performance Guidelines:**  
+> - **Fighter Focus:** DLSS 5 is engineered specifically to enhance fighter character models (**skin, hair, and beard**).  
+> - **Environment & Attire:** Backgrounds and arena surroundings remain untouched, with subtle enhancements applied to fabrics and gloves to maintain peak performance and agility.  
+> - **Real-Time Calibration (`Insert`):** Adjust all parameters during combat using the OptiScaler in-game overlay (`Insert` key).  
+> - ⚠️ **Performance & Ghosting Warning:** Increasing detail levels for cloth or environments adds processing overhead and decreases frame rates. **Lower framerates increase the risk of ghosting artifacts**. For optimal competitive clarity, keep detail scaling focused on character models.
 
 ### Key Features
 - **Bidirectional In-Game & Launcher Sync:** Adjust graphics inside the launcher before playing or hit `Insert` during combat to tweak OptiScaler overlay settings in real time.
